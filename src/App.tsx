@@ -3,6 +3,16 @@ import './App.css';
 import {Accordion} from "./Components/accordion/Accordion";
 import {Rating} from "./Components/rating/Rating";
 import {PageTitle} from "./Components/appTitle/PageTitle";
+import {Map} from "./Components/Method_Map/Map";
+
+const topCars = [
+    {manufacturer:'BMW', model:'m5cs'},
+    {manufacturer:'Mercedes', model:'e63s'},
+    {manufacturer:'Audi', model:'rs6'},
+    {manufacturer:'BMW', model:'m5cs'},
+    {manufacturer:'Mercedes', model:'e63s'},
+    {manufacturer:'Audi', model:'rs6'}
+]
 
 function App() {
 
@@ -21,6 +31,7 @@ function App() {
             <Rating value={3}/>
             <Rating value={4}/>
             <Rating value={5}/>
+            <Map topCars = {topCars}/>
     </span>
     );
 }
