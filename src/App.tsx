@@ -4,6 +4,8 @@ import {Accordion} from "./Components/accordion/Accordion";
 import {Rating} from "./Components/rating/Rating";
 import {PageTitle} from "./Components/appTitle/PageTitle";
 import {Map} from "./Components/Method_Map/Map";
+import {Button} from "./Components/Button/Button";
+import {log} from "util";
 
 const topCars = [
     {manufacturer: 'BMW', model: 'm5cs'},
@@ -15,6 +17,14 @@ const topCars = [
 ]
 
 function App() {
+    const aboutFriends =(subscriber:string, age:number, location:string)=>{
+        console.log(subscriber, age, location)
+    }
+
+    const buttonThree =()=>{
+        console.log("I'm a stupid BUTTON")
+    }
+
 
     return (
         <span>
@@ -32,8 +42,15 @@ function App() {
             <Rating value={4}/>
             <Rating value={5}/>
             <Map topCars={topCars}/>
+            <Button nameButton = "clock me pleas Men" colBack={()=>aboutFriends('Pasha', 37, 'Minsk')}/>
+             <br/>
+            <Button nameButton = "clock me pleas Women" colBack={()=>aboutFriends('Dasha', 29, 'Minsk')}/>
+            <br/>
+            <Button nameButton = "Stupid BUTTON " colBack={buttonThree}/>
+
     </span>
     );
 }
+
 
 export default App;
