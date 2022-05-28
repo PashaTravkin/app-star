@@ -3,7 +3,6 @@ import './App.css';
 import {Accordion} from "./Components/accordion/Accordion";
 import {Rating} from "./Components/rating/Rating";
 import {PageTitle} from "./Components/appTitle/PageTitle";
-import {Map1} from "./Components/Method_Map/Map1";
 import {Map} from "./Components/Method_Map/Map";
 
 const topCars = [
@@ -33,7 +32,6 @@ function App() {
             <Rating value={4}/>
             <Rating value={5}/>
             <Map topCars={topCars}/>
-            <Map1 topCars={topCars}/>
     </span>
     );
 }
