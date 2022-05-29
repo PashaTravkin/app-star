@@ -4,7 +4,7 @@ type RatingPropsType = {
     value:0|1|2|3|4|5
 }
 export function Rating(props: RatingPropsType) {
-    console.log("star")
+    // console.log("star")
     if (props.value === 1) {
         return (
             <div>
