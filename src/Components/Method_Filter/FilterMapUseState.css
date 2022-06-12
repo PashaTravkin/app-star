@@ -1,3 +1,11 @@
-ol > li{
-    display: inline-block;
+ul {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    margin: 100px;
+}
+li {
+    position: relative;
+    margin: 0;
+    padding: 0;
 }
