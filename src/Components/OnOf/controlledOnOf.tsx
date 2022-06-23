@@ -1,15 +1,17 @@
 import React, {useState} from "react";
-// type propsType ={
-//     on:boolean
-// }
 
-export const UncontrolledOnOf = () => {
+type ControlledOnOfPropsType ={
+    onOf:boolean
+    setOnOf: (value:boolean)=>void
+}
 
-    const [onOf, setOnOf] = useState(true)
-
-    let onClickHandler = (value:boolean)=>{
-        setOnOf(value)
-    }
+export const ControlledOnOf = (props:ControlledOnOfPropsType) => {
+    //
+    // const [onOf, setOnOf] = useState(true)
+    //
+    // let onClickHandler = (value:boolean)=>{
+    //     setOnOf(value)
+    // }
 
     const wrapper = {
         margin: '10px',
@@ -21,7 +23,7 @@ export const UncontrolledOnOf = () => {
         marginRight: '2px',
         width:'30px',
         height:'20px',
-        background: onOf?'green':'',
+        background: props.onOf?'green':'',
     }
     const ofStyle = {
         border: '1px solid black',
@@ -30,7 +32,7 @@ export const UncontrolledOnOf = () => {
         marginRight: '10px',
         width:'30px',
         height:'20px',
-        background: !onOf?'red':'',
+        background: !props.onOf?'red':'',
     }
 
     const indicatorStyle = {
@@ -40,12 +42,12 @@ export const UncontrolledOnOf = () => {
         borderRadius: '10px',
         border: '1px solid black',
         marginTop:'10px',
-        background: !onOf?'red':'green',
+        background: !props.onOf?'red':'green',
     }
     return (
         <div style={wrapper}>
-            <div style={onStyle} onClick={()=>onClickHandler(true)} >On</div>
-            <div style={ofStyle} onClick={()=>onClickHandler(false)} >Of</div>
+            <div style={onStyle} onClick={()=>props.setOnOf(true)} >On</div>
+            <div style={ofStyle} onClick={()=>props.setOnOf(false)} >Of</div>
             <div style={indicatorStyle}></div>
         </div>
     )

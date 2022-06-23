@@ -1,13 +1,14 @@
 import React, {useState} from 'react';
 import s from './App.module.css';
 import {Accordion} from "./Components/accordion/Accordion";
-import {Rating} from "./Components/rating/Rating";
+import {UnconrolledRating} from "./Components/rating/UnconrolledRating";
 import {PageTitle} from "./Components/appTitle/PageTitle";
 import {Map} from "./Components/Method_Map/Map";
 import {Button} from "./Components/Button/Button";
 import {Map1} from "./Components/Method_Filter/FilterMapUseState";
 import {UncontrolledOnOf} from "./Components/OnOf/uncontrolledOnOf";
 import {UncontrolledAccordion} from "./Components/accordion/UncontrolledAccordion";
+import {ControlledOnOf} from "./Components/OnOf/controlledOnOf";
 
 const topCars = [
     {manufacturer: 'BMW', model: 'm5cs'},
@@ -56,24 +57,26 @@ function App() {
     }
 
     let [accordionCollapsed, setAccordionCollapsed] = useState(true)
+    let [onOf, setOnOf]=useState(true)
 
     return (
         <div className={s.wrapper}>
            {/*<PageTitle title={"This is App component"}/>*/}
            {/*<PageTitle title={"My friends"}/>*/}
            {/* Article1*/}
-           {/* <Rating value={5}/>*/}
+           {/* <UnconrolledRating value={5}/>*/}
            {/* <UncontrolledAccordion titleValue={"Menu"} />*/}
            {/* <UncontrolledAccordion titleValue={"Users"} />*/}
             <Accordion titleValue={"Menu"} collapsed = {accordionCollapsed} setAccordionCollapsed={setAccordionCollapsed} />
             <Accordion titleValue={"Users"} collapsed = {accordionCollapsed} setAccordionCollapsed={setAccordionCollapsed} />
             {/*Article2*/}
-            <Rating />
-            <Rating />
-            <Rating />
-            <Rating />
-            <Rating />
-            <ControlledOnOf />
+            <UnconrolledRating />
+            <UnconrolledRating />
+            <UnconrolledRating />
+            <UnconrolledRating />
+            <UnconrolledRating />
+            <ControlledOnOf onOf ={onOf} setOnOf={setOnOf}/>
+            <ControlledOnOf onOf ={onOf} setOnOf={setOnOf}/>
             {/*<UncontrolledOnOf />*/}
             {/*<UncontrolledOnOf />*/}
             {/*<UncontrolledOnOf />*/}

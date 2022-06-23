@@ -3,7 +3,7 @@ import React, {useState} from "react";
 
 export type RatingPropsType = {}
 
-export function Rating(props: RatingPropsType) {
+export function UnconrolledRating(props: RatingPropsType) {
 
     const [value, setValue] = useState(1)
 
