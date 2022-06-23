@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
-import './App.css';
+import s from './App.module.css';
 import {Accordion} from "./Components/accordion/Accordion";
 import {Rating} from "./Components/rating/Rating";
 import {PageTitle} from "./Components/appTitle/PageTitle";
 import {Map} from "./Components/Method_Map/Map";
 import {Button} from "./Components/Button/Button";
 import {Map1} from "./Components/Method_Filter/FilterMapUseState";
-import {OnOf} from "./Components/OnOf/OnOf";
+import {UncontrolledOnOf} from "./Components/OnOf/uncontrolledOnOf";
 import {UncontrolledAccordion} from "./Components/accordion/UncontrolledAccordion";
 
 const topCars = [
@@ -55,25 +55,28 @@ function App() {
         console.log(0)
     }
 
+    let [accordionCollapsed, setAccordionCollapsed] = useState(true)
+
     return (
-        <>
+        <div className={s.wrapper}>
            {/*<PageTitle title={"This is App component"}/>*/}
            {/*<PageTitle title={"My friends"}/>*/}
            {/* Article1*/}
            {/* <Rating value={5}/>*/}
-            <UncontrolledAccordion titleValue={"Menu"} />
-            <UncontrolledAccordion titleValue={"Users"} />
-            {/*<Accordion titleValue={"Users"} />*/}
-            {/*<Accordion titleValue={"Users"} />*/}
+           {/* <UncontrolledAccordion titleValue={"Menu"} />*/}
+           {/* <UncontrolledAccordion titleValue={"Users"} />*/}
+            <Accordion titleValue={"Menu"} collapsed = {accordionCollapsed} setAccordionCollapsed={setAccordionCollapsed} />
+            <Accordion titleValue={"Users"} collapsed = {accordionCollapsed} setAccordionCollapsed={setAccordionCollapsed} />
             {/*Article2*/}
             <Rating />
             <Rating />
             <Rating />
             <Rating />
             <Rating />
-            <OnOf />
-            <OnOf />
-            <OnOf />
+            <ControlledOnOf />
+            {/*<UncontrolledOnOf />*/}
+            {/*<UncontrolledOnOf />*/}
+            {/*<UncontrolledOnOf />*/}
 
             {/*<Map topCars={topCars}/>*/}
             {/*<Button nameButton="clock me pleas Men" colBack={() => aboutFriends('Pasha', 37, 'Minsk')}/>*/}
@@ -89,7 +92,7 @@ function App() {
             {/*<br/>*/}
             {/*<br/>*/}
             {/*<Map1 money={currentMoney}/>*/}
-    </>
+    </div>
     );
 }
 

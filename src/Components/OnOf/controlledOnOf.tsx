@@ -3,7 +3,7 @@ import React, {useState} from "react";
 //     on:boolean
 // }
 
-export const OnOf = () => {
+export const UncontrolledOnOf = () => {
 
     const [onOf, setOnOf] = useState(true)
 

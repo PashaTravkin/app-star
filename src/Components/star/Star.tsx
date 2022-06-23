@@ -2,19 +2,15 @@ import React, {useState} from "react";
 
 type starProps = {
     selected: boolean,
-    toggleValue: (value: number) => void,
-    current:number
-
+    setValue:()=>void
 }
-
+    
 export function Star(props: starProps) {
 
 
     return (
         <>
-            {props.selected ? <b onClick={() => props.toggleValue(props.current)} >STAR </b> :
-                <span onClick={() => props.toggleValue(props.current)}>STAR </span>}
-
+            <span onClick={props.setValue}>{props.selected?<b>  STAR</b>:'  STAR'}</span>
         </>
     )
 }
