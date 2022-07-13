@@ -1,14 +1,8 @@
 import React, {useState} from 'react';
 import s from './App.module.css';
 import {Accordion} from "./Components/accordion/Accordion";
-import {UnconrolledRating} from "./Components/rating/UnconrolledRating";
-import {PageTitle} from "./Components/appTitle/PageTitle";
-import {Map} from "./Components/Method_Map/Map";
-import {Button} from "./Components/Button/Button";
-import {Map1} from "./Components/Method_Filter/FilterMapUseState";
-import {UncontrolledOnOf} from "./Components/OnOf/uncontrolledOnOf";
-import {UncontrolledAccordion} from "./Components/accordion/UncontrolledAccordion";
 import {ControlledOnOf} from "./Components/OnOf/controlledOnOf";
+import {ControlledRating, RatingValue} from "./Components/rating/СontrolledRating";
 
 const topCars = [
     {manufacturer: 'BMW', model: 'm5cs'},
@@ -56,27 +50,46 @@ function App() {
         console.log(0)
     }
 
+
     let [accordionCollapsed, setAccordionCollapsed] = useState(true)
-    let [onOf, setOnOf]=useState(true)
+    let [ratingValue, setRatingValue] = useState<RatingValue>(1)
+    let [onOf, setOnOf] = useState(true)
+
+
+
+    let items = [
+        {title: 'Pasha', value: 1},
+        {title: 'Masha', value: 2},
+        {title: 'Lera', value: 3},
+        {title: 'Nikol', value: 4}
+    ]
+
+    let onClickToItem=(value:any)=>{
+        alert(`this ID number is ${value}`)
+    }
+
 
     return (
         <div className={s.wrapper}>
-           {/*<PageTitle title={"This is App component"}/>*/}
-           {/*<PageTitle title={"My friends"}/>*/}
-           {/* Article1*/}
-           {/* <UnconrolledRating value={5}/>*/}
-           {/* <UncontrolledAccordion titleValue={"Menu"} />*/}
-           {/* <UncontrolledAccordion titleValue={"Users"} />*/}
-            <Accordion titleValue={"Menu"} collapsed = {accordionCollapsed} setAccordionCollapsed={setAccordionCollapsed} />
-            <Accordion titleValue={"Users"} collapsed = {accordionCollapsed} setAccordionCollapsed={setAccordionCollapsed} />
+            {/*<PageTitle title={"This is App component"}/>*/}
+            {/*<PageTitle title={"My friends"}/>*/}
+            {/* Article1*/}
+            {/* <UnconrolledRating value={5}/>*/}
+            {/* <UncontrolledAccordion titleValue={"Menu"} />*/}
+            {/* <UncontrolledAccordion titleValue={"Users"} />*/}
+            <Accordion items={items} titleValue={"Menu"}
+                       onClickToItem={onClickToItem}
+                       collapsed={accordionCollapsed}
+                       setAccordionCollapsed={setAccordionCollapsed}/>
+            {/*<Accordion titleValue={"Users"} collapsed = {accordionCollapsed} setAccordionCollapsed={setAccordionCollapsed} />*/}
             {/*Article2*/}
-            <UnconrolledRating />
-            <UnconrolledRating />
-            <UnconrolledRating />
-            <UnconrolledRating />
-            <UnconrolledRating />
-            <ControlledOnOf onOf ={onOf} setOnOf={setOnOf}/>
-            <ControlledOnOf onOf ={onOf} setOnOf={setOnOf}/>
+            <ControlledRating ratingValue={ratingValue} setRatingValue={setRatingValue}/>
+            {/*<ControlledRating ratingValue = {ratingValue} setRatingValue={setRatingValue}/>*/}
+            {/*<ControlledRating ratingValue = {ratingValue} setRatingValue={setRatingValue}/>*/}
+            {/*<ControlledRating ratingValue = {ratingValue} setRatingValue={setRatingValue}/>*/}
+            {/*<ControlledRating ratingValue = {ratingValue} setRatingValue={setRatingValue}/>*/}
+            <ControlledOnOf onOf={onOf} setOnOf={setOnOf}/>
+            {/*<ControlledOnOf onOf ={onOf} setOnOf={setOnOf}/>*/}
             {/*<UncontrolledOnOf />*/}
             {/*<UncontrolledOnOf />*/}
             {/*<UncontrolledOnOf />*/}
@@ -95,10 +108,9 @@ function App() {
             {/*<br/>*/}
             {/*<br/>*/}
             {/*<Map1 money={currentMoney}/>*/}
-    </div>
+        </div>
     );
 }
-
 
 
 export default App;
